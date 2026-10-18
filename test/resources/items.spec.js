@@ -137,6 +137,38 @@ describe("ITEMS", () => {
       testTitle: "Check if skip and count are automatically populated"
     });
 
+    describe("active filter", () => {
+      let methodName = "all",
+         methodArgs = [{ active: 1 }],
+         expectedParams = { skip: 0, count: 10, active: 1 },
+         mockerParams = {
+           url: `${SUB_PATH}`
+         };
+
+      runParamsCheckTest({
+        apiObj,
+        methodName,
+        methodArgs,
+        mockerParams,
+        expectedParams,
+        testTitle: "Check if active=1 filter is forwarded"
+      });
+
+      methodArgs = [{ active: 0 }];
+      expectedParams = { skip: 0, count: 10, active: 0 };
+
+      runParamsCheckTest({
+        apiObj,
+        methodName,
+        methodArgs,
+        mockerParams,
+        expectedParams,
+        testTitle: "Check if active=0 filter is forwarded"
+      });
+    });
+
+
+
     methodArgs = [{}];
 
     runCallbackCheckTest({
