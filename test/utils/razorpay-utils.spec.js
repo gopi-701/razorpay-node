@@ -121,24 +121,6 @@ describe('Razorpay Utils', () => {
     );
   });
 
-<<<<<<< HEAD
-=======
-  it('validateWebhookSignature uses timing-safe comparison', () => {
-    const respBody = '{"a":1,"b":2,"c":{"d":3}}'
-    const secret = "123456"
-    const correctSignature = "2fe04e22977002e6c7cb553adab8b460cb" +
-                              "9e2a4970d5953cb27a8472752e3bbc"
-    const wrongSignature = "000000000000000000000000000000000" +
-                           "0000000000000000000000000000"
-
-    assert.ok(
-      validateWebhookSignature(respBody, correctSignature, secret) &&
-      !validateWebhookSignature(respBody, wrongSignature, secret),
-      'Timing-safe: validates webhook signature with correct and wrong signatures'
-    );
-  });
-
->>>>>>> HEAD@{1}
   it('validateWebhookSignature rejects signatures of different length', () => {
     const respBody = '{"test":"data"}'
     const secret = "mysecret"
@@ -151,10 +133,6 @@ describe('Razorpay Utils', () => {
       'Rejects signatures with different lengths than expected HMAC-SHA256 (64 hex chars)'
     );
   });
-<<<<<<< HEAD
-});
-=======
->>>>>>> HEAD@{1}
 
   it('Subscription Verfication', () => {
       
