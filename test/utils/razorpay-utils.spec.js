@@ -105,7 +105,8 @@ describe('Razorpay Utils', () => {
       !validateWebhookSignature(respBody, wrongSignature, secret),
       'Validates webhook signature'
     );
-  
+  });
+
   it('validateWebhookSignature uses timing-safe comparison', () => {
     const respBody = '{"a":1,"b":2,"c":{"d":3}}'
     const secret = "123456"
